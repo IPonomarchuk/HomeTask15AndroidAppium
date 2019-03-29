@@ -1,9 +1,6 @@
 package com.aqacourses.android;
 
 import io.appium.java_client.android.AndroidDriver;
-import java.io.File;
-import java.net.MalformedURLException;
-import java.net.URL;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
@@ -17,6 +14,10 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.io.File;
+import java.net.MalformedURLException;
+import java.net.URL;
 
 public class ApplicationTest {
 
@@ -169,11 +170,13 @@ public class ApplicationTest {
 
     /** Open the category by name */
     public void openCategoryByName(String name) {
+        waitTillElementIsVisible(driver.findElement(By.xpath(String.format(CATEGORY_NAME_XPATH, name))));
         driver.findElement(By.xpath(String.format(CATEGORY_NAME_XPATH, name))).click();
     }
 
     /** Open the product by index */
     public void openProductByIndex(String index) {
+        waitTillElementIsVisible(driver.findElement(By.xpath(String.format(PRODUCT_INDEX_XPATH, index))));
         driver.findElement(By.xpath(String.format(PRODUCT_INDEX_XPATH, index))).click();
     }
 
